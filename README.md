@@ -36,6 +36,9 @@ The OCR API enables developers to extract printed and handwritten text from imag
         "image_url": "https://drive.google.com/uc?id=14x5Q2Ew01Rtsk0qZT-ugU07KCdcr8VHS"
      }
      ```
+5. Response
+   <img width="1470" alt="Screenshot 2024-12-04 at 9 47 35 PM" src="https://github.com/user-attachments/assets/9c214089-ba29-4328-bd60-fe133e3b4095">
+
 ## Error Handling
 -	400: Ensure that the imageUrl is correct and publicly accessible.
 -	408: This happens when processing takes too long. Retry with a smaller image or after some time.
