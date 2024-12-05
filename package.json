@@ -12,5 +12,13 @@
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riyakalburgi-uncc/ITIS-6177-OCR-Final-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/riyakalburgi-uncc/ITIS-6177-OCR-Final-Project/issues"
+  },
+  "homepage": "https://github.com/riyakalburgi-uncc/ITIS-6177-OCR-Final-Project#readme"
 }

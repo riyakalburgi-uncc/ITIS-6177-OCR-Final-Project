@@ -1,3 +1,4 @@
+//Import libraries
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
@@ -12,13 +13,14 @@ const endpoint = process.env.AZURE_VISION_ENDPOINT;
 const apiKey = process.env.AZURE_VISION_KEY;
 const location = process.env.AZURE_VISION_LOCATION;
 
+// OCR API calls
 app.post("/read-image", async (req, res) => {
   const { image_url } = req.body;
 
   if (!image_url) {
     return res
       .status(400)
-      .json({ error: "Image URL is required in the request body." });
+      .json({ error: "image_url is required in the request body." });
   }
 
   try {
@@ -48,12 +50,12 @@ app.post("/read-image", async (req, res) => {
         result = operationResult.data;
         break;
       } else if (operationResult.data.status === "failed") {
-        return res.status(500).json({ error: "OCR processing failed." });
+        return res.status(500).json({ error: "Failure of OCR processing." });
       }
     }
 
     if (!result) {
-      return res.status(408).json({ error: "OCR processing timed out." });
+      return res.status(408).json({ error: "Timed out while OCR processing." });
     }
 
     res.status(200).json(result.analyzeResult.readResults);
@@ -61,12 +63,12 @@ app.post("/read-image", async (req, res) => {
     console.error("Error:", error.message);
     res.status(error.response?.status || 500).json({
       error:
-        error.response?.data || "An error occurred while processing the image.",
+        error.response?.data || "Image could not be processed.",
     });
   }
 });
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at http://134.209.45.33:${port}`);
 });
